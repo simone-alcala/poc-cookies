@@ -81,7 +81,7 @@
 
       <!--BACKEND -->
 
-        <h1>Cookies no back-end</h1>
+        <p class="subtitle">Cookies no back-end</p>
 
         <p>Se quisermos que o servidor armazene algum dado em um cookie no navegador (cliente), devemos
           ter a seguinte linha de código na rota que desejarmos:</p>
@@ -122,7 +122,7 @@
       
       <!-- FRONTEND -->
 
-        <h1>Cookies no front-end</h1>
+        <p class="subtitle">Cookies no front-end</p>
 
         <p>Uma vez que os cookies estejam armazenados no navegador, quando enviarmos uma requisição para a mesma rota
             - domain e path - esses cookies serão enviados no <strong>header</strong> da requisição e estarão 
@@ -160,7 +160,7 @@
       
       <!--DIFERENÇAS -->
 
-        <h1>Cookies x Local Storage</h1>
+        <p class="subtitle">Cookies x Local Storage</p>
 
         <p>Local storage também é um recurso utilizado quando queremos armazenar uma informação ao recarregar uma página,
           mas nesse caso, o armazenamento não é feito no servidor.</p>
@@ -198,26 +198,30 @@
         </div>
 
         <h2><i>Simulando</i> um ataque XSS</h2>
-        <textarea></textarea><button onclick="enviarDados()"> Atacar</button> <div id="teste"></div>
+        <textarea></textarea><button onclick="enviarDados()"> Testar</button> <div id="teste"></div>
       
       <!-- ANÚNCIOS -->
 
-        <h1>Cookies e os anúncios</h1>
+        <p class="subtitle">Cookies e os anúncios</p>
         <p>Quando visitamos um site com cookie habilitados pela primeira vez, é solicitado nosso aceite para armazenamento
           dos cookies. Esses cookies podem armazenar a opção de idioma selecionada por nós, credenciais de acesso, 
           carrinho de compras, etc.
         </p>
         <br/>
-        <p>Os cookies são sub divididos em primários e de terceiros. Os primários são criados pelo domínio do site 
-          que está sendo acessado. Já os cookies de terceiros vêm de páginas de outros domínios.</p>
+        <p>Os cookies são sub divididos em primários e de terceiros. </p>
         <br/>
-        <p>Esses cookies de terceiros geralmente vêm de anúncios de sites que visitamos e são utilizados no marketing para 
-          direcionar anúncios relacionados ao que mais acessamos.
-        </p>
+        <p>Os primários são criados pelo domínio do site que está sendo acessado - basicamente é o que fizemos até agora -
+        e só podem ser acessados pelo próprio domínio. Por exemplo, <i>xyz.com</i> não acessa os cookies de <i>abc.com</i></p>
+        <br/>       
+        <p>Já os cookies de terceiros vêm de páginas de outros domínios. Esses cookies de terceiros geralmente vêm de anúncios 
+          de sites que visitamos e são utilizados no marketing para direcionar anúncios relacionados ao que mais acessamos.</p>
+        <br/>
+        <p>Nesse caso, o site que estamos acessando envia uma requisição para o servidor dos <i>cookies de terceiros </i> que 
+          provavelmente será usado para gerar anúncios do que estamos visualizando no site atual.</p>
       
       <!--REFERENCIAS -->  
 
-        <h1>Referências</h1>
+        <p class="subtitle">Referências</p>
         
           <p><a href="https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Cookies" target="_blank">
             MDN HTTP Cookies</a></p>
@@ -232,7 +236,13 @@
           
           <p><a href="https://olhardigital.com.br/2022/01/24/tira-duvidas/o-que-sao-e-como-funcionam-os-cookies/" target="_blank">
             O que são e como funcionam os cookies
-          </a> </p>         
+          </a> </p>   
+          
+          <p><a href="https://us.norton.com/internetsecurity-privacy-internet-privacy-third-party-cookies.html" target="_blank">
+            Third-party cookies: What are they and how do they work?
+          </a> </p>  
+
+          <br/>
 
     </section>
   
