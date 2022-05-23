@@ -15,239 +15,227 @@
 <body>
 
   <header>
-    <div class="width"> 
       <section>
         <img src="./images/cookie.png" alt="cookie" />
         <h1><strong>Cookies</strong></h1>
       </section>
-    </div>
   </header>
 
   <main>
-    <div class="width">
+      
+    <section>
+
+      <!--O QUE SÃO COOKIES -->
+
+        <h1>O que são <i>Cookies</i>?</h1>
+
+        <p>Cookie é um tipo de armazenamento que é feito no servidor e no cliente. É muito utilizado quando
+          queremos persistir alguma informação ao recarregar uma página no navegador e precisamos dessa informação
+          no servidor. </p>
+        <br/>
+        <p>Esse cookie será transportado via requisição do cliente para o servidor. 
+          E <i>pode</i> ser considerado mais seguro (mais adiante, teremos uma demonstração).</p>
         
-        <section>
+        <h2>Introdução aos cookies</h2>
+        
+        <p>Basicamente, só precisamos de um navegador para começar os testes. E para criar um cookie,
+          precisaremos somente de uma chave e um valor. Mas é bom especificar uma data de validade.</p>
+        
+        <p class="example">Exemplos</p>
+        <p class="code">document.cookie = 'nome1=valor; expires=' + new Date(2023, 11, 31).toUTCString();</p>
+        <p class="code">document.cookie = 'nome2=valor; expires=' + new Date(9999, 11, 31).toUTCString(); //nunca expira</p>
+        <p class="code">document.cookie = 'nome3=valor;' //é criado um cookie de sessão</p>
+        <p class="code">document.cookie = 'nome4=valor; maxage=' //cookie que expira em x milisegundos</p>
+        
+        <p>Para consultar um cookie, podemos executar o comando abaixo:</p>
+        <p class="code">document.cookie;</p>
+        <p class="code">//'nome1=valor; nome2=valor; nome3=valor'</p>
+        
+        <h2>Alterando um cookie</h2>
+        <p>Se criarmos um cookie com o mesmo <i>name</i>, seus demais atributos serão substituídos pelos novos.</p>
+        
+        <p class="example">Exemplo</p>
 
-          <div id="what">
-  
-            <h1>O que são <i>Cookies</i>?</h1>
-  
-            <p>Cookie é um tipo de armazenamento que é feito no servidor e no cliente. É muito utilizado quando
-              queremos persistir alguma informação ao recarregar uma página no navegador e precisamos dessa informação
-              no servidor. </p>
-            <br/>
-            <p>Esse cookie será transportado via requisição do cliente para o servidor. 
-              E <i>pode</i> ser considerado mais seguro (mais adiante, teremos uma demonstração).</p>
-            
-            <h2>Introdução aos cookies</h2>
-            
-            <p>Basicamente, só precisamos de um navegador para começar os testes. E para criar um cookie,
-              precisaremos somente de uma chave e um valor. Mas é bom especificar uma data de validade.</p>
-            
-            <p class="example">Exemplos</p>
-            <p class="code">document.cookie = 'nome1=valor; expires=' + new Date(2023, 11, 31).toUTCString();</p>
-            <p class="code">document.cookie = 'nome2=valor; expires=' + new Date(9999, 11, 31).toUTCString(); //nunca expira</p>
-            <p class="code">document.cookie = 'nome3=valor;' //é criado um cookie de sessão</p>
-            <p class="code">document.cookie = 'nome4=valor; maxage=' //cookie que expira em x milisegundos</p>
-            
-            <p>Para consultar um cookie, podemos executar o comando abaixo:</p>
-            <p class="code">document.cookie;</p>
-            <p class="code">//'nome1=valor; nome2=valor; nome3=valor'</p>
-            
-            <h2>Alterando um cookie</h2>
-            <p>Se criarmos um cookie com o mesmo <i>name</i>, seus demais atributos serão substituídos pelos novos.</p>
-            
-            <p class="example">Exemplo</p>
-    
-            <p>Anteriormente, criamos o cookie abaixo:</p>
-            <p class="code">document.cookie = 'nome1=valor; expires=' + new Date(2023, 11, 31).toUTCString();</p>
-            <p class="code">//nome1=valor'</p>
-            <p>Para alterá-lo, podemos:</p>  
-            <p class="code">document.cookie = 'nome1=valorNOVO;'</p>
-            <p class="code">//nome1=valorNOVO'</p>
-    
-            <h2>Um pouco de segurança aos cookies</h2>
-            <p>Assim como <i>expires</i> e <i>maxage</i>, temos outros atributos que podem e devem ser utilizados para
-              trazer mais segurança aos cookies: <i>HttpOnly</i> e <i>Secure</i>, onde: </p>
-            <br/>
-            <p><strong>Secure: </strong> garante que o cookie pode ser transferido somente pelo protocolo HTTPS.</p>
-            <p><strong>HttpOnly: </strong>bloqueia o acesso ao cookie via javascript no cliente (navegador)<strong>*</strong> 
-            <p>* Até agora conseguimos fazer as alterações em cookies direto no console do navegador, 
-              pois ainda não havíamos configurado essa propriedade.</p>
-            <br/>
-            <p>A propriedade <i>HttpOnly</i> é especialmente importante para dificultar ataques XSS - 
-              quando alguém chama um código javascript de dentro do navegador - já que os cookies ficam inacessíveis 
-              via javascript.</p>
-            <br/>
-            <p>Mas isso não significa que os cookies com essa propriedade fiquem completamente seguros: é possível
-              abrir o DevTools do navegador e acessar normalmente esses cookies.</p>  
-  
+        <p>Anteriormente, criamos o cookie abaixo:</p>
+        <p class="code">document.cookie = 'nome1=valor; expires=' + new Date(2023, 11, 31).toUTCString();</p>
+        <p class="code">//nome1=valor'</p>
+        <p>Para alterá-lo, podemos:</p>  
+        <p class="code">document.cookie = 'nome1=valorNOVO;'</p>
+        <p class="code">//nome1=valorNOVO'</p>
+
+        <h2>Um pouco de segurança aos cookies</h2>
+        <p>Assim como <i>expires</i> e <i>maxage</i>, temos outros atributos que podem e devem ser utilizados para
+          trazer mais segurança aos cookies: <i>HttpOnly</i> e <i>Secure</i>, onde: </p>
+        <br/>
+        <p><strong>Secure: </strong> garante que o cookie pode ser transferido somente pelo protocolo HTTPS.</p>
+        <p><strong>HttpOnly: </strong>bloqueia o acesso ao cookie via javascript no cliente (navegador)<strong>*</strong> 
+        <p>* Até agora conseguimos fazer as alterações em cookies direto no console do navegador, 
+          pois ainda não havíamos configurado essa propriedade.</p>
+        <br/>
+        <p>A propriedade <i>HttpOnly</i> é especialmente importante para dificultar ataques XSS - 
+          quando alguém chama um código javascript de dentro do navegador - já que os cookies ficam inacessíveis 
+          via javascript.</p>
+        <br/>
+        <p>Mas isso não significa que os cookies com essa propriedade fiquem completamente seguros: é possível
+          abrir o DevTools do navegador e acessar normalmente esses cookies.</p>  
+
+      <!--BACKEND -->
+
+        <h1>Cookies no back-end</h1>
+
+        <p>Se quisermos que o servidor armazene algum dado em um cookie no navegador (cliente), devemos
+          ter a seguinte linha de código na rota que desejarmos:</p>
+        <p class="code">  res.cookie('nome_do_cookie','valor_para_esse_cookie') </p>
+        <br/>
+        <p>Assim, sempre que uma requisição for feita para essa rota, esse cookie será armazenado.</p>
+        <br/>
+        <p>Interessante é que, mesmo que alteremos a rota, removendo a inclusão desse cookie, o cookie continuará 
+          armazenado lá no navegador quando o usuário acessar essa mesma rota.</p>
+
+        <h2>Enviando cookies do front para o back</h2>
+        
+        <p>Uma vez que o cookie existe no navegador em determinada rota, sempre que uma requisição for enviada para ela,
+          o cookie será enviado (lembrando que existe a propriedade <i>Secure</i> que permite a transferência do cookie
+          somente via HTTPS).</p>
+        <br/>
+        <p>Para ler os cookies que são recebidos, recomenda-se a utilização do pacote 
+          <a href="https://www.npmjs.com/package/cookie-parser" target="_blank"><i>cookie-parser</i></a>. A seguir, 
+        veremos como ler cookies com e sem esse pacote.</p>
+
+        <br/>
+        <h3>Sem pacote</h3>
+        <p class="code">const cookie = req.headers.cookie;</p>
+        <p class="code">//nome_do_cookie=valor_para_esse_cookie</p>
+
+        <h3>Com pacote</h3>
+        <p class="code">npm i cookie-parser</p>
+        <p class="code">import cookieParser from 'cookie-parser';</p>
+        <p class="code">app.use(cookieParser());</p>
+        <p class="code">const cookieWithParser = (req.cookies);</p>
+        <p class="code">//{ nome_do_cookie: 'valor_para_esse_cookie' } </p>
+
+        <h2>Excluindo cookies</h2>
+        <p>Não há uma maneira direta de enviar uma resposta que exclua o cookie, o que pode ser feito é devolver uma 
+          resposta com um prazo de expiração que ocorrerá em breve. Isso pode ser feito com a propriedade <i>maxAge</i>: </p>
+        <p class="code">res.cookie('key','value', { maxAge: 10 * 1000} ); // validade de 10 segundos</p>
+        <p>Em 10 segundos o cookie expirará e será excluído do cliente.</p>
+      
+      <!-- FRONTEND -->
+
+        <h1>Cookies no front-end</h1>
+
+        <p>Uma vez que os cookies estejam armazenados no navegador, quando enviarmos uma requisição para a mesma rota
+            - domain e path - esses cookies serão enviados no <strong>header</strong> da requisição e estarão 
+            disponíveis para leitura no servidor. Para que essa comunicação ocorra, algumas configurações precisam ser feitas:</p>
+        
+        <h3>No back-end:</h3>
+        <p class="code">app.use(cors( { origin: true , credentials: true } ));</p>
+        <p class="code">//<strong>origin:</strong> definimos <i>quem</i> poderá acessar a rota</p>
+        <p class="code">//<strong>credentials:</strong> habilitamos <i>Access-Control-Allow-Credentials</i></p>
+
+        <h3>No front-end:</h3>
+        <p>Precisamos passar o parâmetro abaixo em todas as requisições:</p>
+        <p class="code">{ withCredentials: true }</p>
+        <p class="example">Exemplo:</p>
+        <p class="code">const promise = axios.get('http://localhost:5000/', { withCredentials: true } );</p>
+
+        <p>No caso de uma requisição <i>POST</i>, precisamos passar mais informações sobre nossa requição no 
+        <strong>header</strong>:</p>
+        <p class="code">const header = { headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'    
+        },
+        withCredentials: true };</p>
+        <p class="example">Exemplo:</p>
+        <p class="code">const promise = axios.post('http://localhost:5000/', body,  header );</p>
+
+        <br/>
+
+        <p>Caso seja necessário enviar um cookie criar um cookie enviá-lo para o servidor, devemos criá-lo utilizando 
+          sintaxe:</p>
+          <p class="code">document.cookie = 'novo=cookie;'</p>
+        <br/>
+
+        <p>E então fazer uma requisição para o servidor para que o cookie seja enviado.</p>
+      
+      <!--DIFERENÇAS -->
+
+        <h1>Cookies x Local Storage</h1>
+
+        <p>Local storage também é um recurso utilizado quando queremos armazenar uma informação ao recarregar uma página,
+          mas nesse caso, o armazenamento não é feito no servidor.</p>
+        <br/>
+        <p>Não é possível definir um prazo de validade e nem uma forma de bloquear o acesso à informação armanezada, 
+          por essa razão é considerado menos seguro</p>
+
+        <h2>Comparativo: Cookies x Local Storage</h2>  
+
+        <div class="compare">
+          <div class="header">
+            <div class="title"></div><div class="title">Cookies</div><div class="title">Local Storage</div>
+          </div>
+          <div class="row">
+            <div class="feature">Acessível no cliente</div>   
+            <div class="description">Você escolhe</div>
+            <div class="description">Sempre</div>
+          </div>
+          <div class="row">
+            <div class="feature">Expira</div>                 
+            <div class="description">Sim</div>
+            <div class="description">Não</div>
+          </div>
+          <div class="row">
+            <div class="feature">Armazenamento</div>          
+            <div class="description">Servidor e cliente</div>
+            <div class="description">Cliente</div>
+          </div>
+          <div class="row">
+            <div class="feature">Capacidade</div>             
+            <div class="description">4Kb</div>
+            <div class="description">10Mb</div>
           </div>
           
-          <div id="back">
-            <h1>Cookies no back-end</h1>
+        </div>
 
-            <p>Se quisermos que o servidor armazene algum dado em um cookie no navegador (cliente), devemos
-              ter a seguinte linha de código na rota que desejarmos:</p>
-            <p class="code">  res.cookie('nome_do_cookie','valor_para_esse_cookie') </p>
-            <br/>
-            <p>Assim, sempre que uma requisição for feita para essa rota, esse cookie será armazenado.</p>
-            <br/>
-            <p>Interessante é que, mesmo que alteremos a rota, removendo a inclusão desse cookie, o cookie continuará 
-              armazenado lá no navegador quando o usuário acessar essa mesma rota.</p>
+        <h2><i>Simulando</i> um ataque XSS</h2>
+        <textarea></textarea><button onclick="enviarDados()"> Atacar</button> <div id="teste"></div>
+      
+      <!-- ANÚNCIOS -->
 
-            <h2>Enviando cookies do front para o back</h2>
-            
-            <p>Uma vez que o cookie existe no navegador em determinada rota, sempre que uma requisição for enviada para ela,
-              o cookie será enviado (lembrando que existe a propriedade <i>Secure</i> que permite a transferência do cookie
-              somente via HTTPS).</p>
-            <br/>
-            <p>Para ler os cookies que são recebidos, recomenda-se a utilização do pacote 
-              <a href="https://www.npmjs.com/package/cookie-parser" target="_blank"><i>cookie-parser</i></a>. A seguir, 
-            veremos como ler cookies com e sem esse pacote.</p>
+        <h1>Cookies e os anúncios</h1>
+        <p>Quando visitamos um site com cookie habilitados pela primeira vez, é solicitado nosso aceite para armazenamento
+          dos cookies. Esses cookies podem armazenar a opção de idioma selecionada por nós, credenciais de acesso, 
+          carrinho de compras, etc.
+        </p>
+        <br/>
+        <p>Os cookies são sub divididos em primários e de terceiros. Os primários são criados pelo domínio do site 
+          que está sendo acessado. Já os cookies de terceiros vêm de páginas de outros domínios.</p>
+        <br/>
+        <p>Esses cookies de terceiros geralmente vêm de anúncios de sites que visitamos e são utilizados no marketing para 
+          direcionar anúncios relacionados ao que mais acessamos.
+        </p>
+      
+      <!--REFERENCIAS -->  
 
-            <br/>
-            <h3>Sem pacote</h3>
-            <p class="code">const cookie = req.headers.cookie;</p>
-            <p class="code">//nome_do_cookie=valor_para_esse_cookie</p>
-
-            <h3>Com pacote</h3>
-            <p class="code">npm i cookie-parser</p>
-            <p class="code">import cookieParser from 'cookie-parser';</p>
-            <p class="code">app.use(cookieParser());</p>
-            <p class="code">const cookieWithParser = (req.cookies);</p>
-            <p class="code">//{ nome_do_cookie: 'valor_para_esse_cookie' } </p>
-
-            <h2>Excluindo cookies</h2>
-            <p>Não há uma maneira direta de enviar uma resposta que exclua o cookie, o que pode ser feito é devolver uma 
-              resposta com um prazo de expiração que ocorrerá em breve. Isso pode ser feito com a propriedade <i>maxAge</i>: </p>
-            <p class="code">res.cookie('key','value', { maxAge: 10 * 1000} ); // validade de 10 segundos</p>
-            <p>Em 10 segundos o cookie expirará e será excluído do cliente.</p>
+        <h1>Referências</h1>
+        
+          <p><a href="https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Cookies" target="_blank">
+            MDN HTTP Cookies</a></p>
           
-          </div>
+          <p><a href="https://www.youtube.com/watch?v=uXDnS5PcjCA" target="_blank">
+            Cookies, Sessions, JSON Web Tokens (JWT) and More
+          </a></p>
+
+          <p><a href="https://www.youtube.com/watch?v=rNhqak2O-k0" target="_blank">
+            Local Storage, Session Storage or Cookies? XSS and CSRF included
+          </a></p>
           
-          <div id="front">
-            <h1>Cookies no front-end</h1>
+          <p><a href="https://olhardigital.com.br/2022/01/24/tira-duvidas/o-que-sao-e-como-funcionam-os-cookies/" target="_blank">
+            O que são e como funcionam os cookies
+          </a> </p>         
 
-            <p>Uma vez que os cookies estejam armazenados no navegador, quando enviarmos uma requisição para a mesma rota
-               - domain e path - esses cookies serão enviados no <strong>header</strong> da requisição e estarão 
-               disponíveis para leitura no servidor. Para que essa comunicação ocorra, algumas configurações precisam ser feitas:</p>
-            
-            <h3>No back-end:</h3>
-            <p class="code">app.use(cors( { origin: true , credentials: true } ));</p>
-            <p class="code">//<strong>origin:</strong> definimos <i>quem</i> poderá acessar a rota</p>
-            <p class="code">//<strong>credentials:</strong> habilitamos <i>Access-Control-Allow-Credentials</i></p>
-
-            <h3>No front-end:</h3>
-            <p>Precisamos passar o parâmetro abaixo em todas as requisições:</p>
-            <p class="code">{ withCredentials: true }</p>
-            <p class="example">Exemplo:</p>
-            <p class="code">const promise = axios.get('http://localhost:5000/', { withCredentials: true } );</p>
-
-            <p>No caso de uma requisição <i>POST</i>, precisamos passar mais informações sobre nossa requição no 
-            <strong>header</strong>:</p>
-            <p class="code">const header = { headers: {
-              'Content-Type': 'application/json',
-              'Accept': 'application/json'    
-            },
-            withCredentials: true };</p>
-            <p class="example">Exemplo:</p>
-            <p class="code">const promise = axios.post('http://localhost:5000/', body,  header );</p>
-
-            <br/>
-
-            <p>Caso seja necessário enviar um cookie criar um cookie enviá-lo para o servidor, devemos criá-lo utilizando 
-              sintaxe:</p>
-              <p class="code">document.cookie = 'novo=cookie;'</p>
-            <br/>
-
-            <p>E então fazer uma requisição para o servidor para que o cookie seja enviado.</p>
-          </div>
-          
-          <div id="differences">
-
-            <h1>Cookies x Local Storage</h1>
-    
-            <p>Local storage também é um recurso utilizado quando queremos armazenar uma informação ao recarregar uma página,
-              mas nesse caso, o armazenamento não é feito no servidor.</p>
-            <br/>
-            <p>Não é possível definir um prazo de validade e nem uma forma de bloquear o acesso à informação armanezada, 
-              por essa razão é considerado menos seguro</p>
-    
-            <h2>Comparativo: Cookies x Local Storage</h2>  
+    </section>
   
-            <div class="compare">
-              <div class="header">
-                <div class="title"></div><div class="title">Cookies</div><div class="title">Local Storage</div>
-              </div>
-              <div class="row">
-                <div class="feature">Acessível no cliente</div>   
-                <div class="description">Você escolhe</div>
-                <div class="description">Sempre</div>
-              </div>
-              <div class="row">
-                <div class="feature">Expira</div>                 
-                <div class="description">Sim</div>
-                <div class="description">Não</div>
-              </div>
-              <div class="row">
-                <div class="feature">Armazenamento</div>          
-                <div class="description">Servidor e cliente</div>
-                <div class="description">Cliente</div>
-              </div>
-              <div class="row">
-                <div class="feature">Capacidade</div>             
-                <div class="description">4Kb</div>
-                <div class="description">10Mb</div>
-              </div>
-              
-            </div>
- 
-            <h2><i>Simulando</i> um ataque XSS</h2>
-            <textarea></textarea><button onclick="enviarDados()"> Atacar</button> <div id="teste"></div>
-          </div>
-
-          <div id="advertisements">
-            <h1>Cookies e os anúncios</h1>
-            <p>Quando visitamos um site com cookie habilitados pela primeira vez, é solicitado nosso aceite para armazenamento
-              dos cookies. Esses cookies podem armazenar a opção de idioma selecionada por nós, credenciais de acesso, 
-              carrinho de compras, etc.
-            </p>
-            <br/>
-            <p>Os cookies são sub divididos em primários e de terceiros. Os primários são criados pelo domínio do site 
-              que está sendo acessado. Já os cookies de terceiros vêm de páginas de outros domínios.</p>
-            <br/>
-            <p>Esses cookies de terceiros geralmente vêm de anúncios de sites que visitamos e são utilizados no marketing para 
-              direcionar anúncios relacionados ao que mais acessamos.
-            </p>
-          </div>
-
-          <div id="refs">
-
-            <h1>Referências</h1>
-            
-              <p><a href="https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Cookies" target="_blank">
-                MDN HTTP Cookies</a></p>
-              
-              <p><a href="https://www.youtube.com/watch?v=uXDnS5PcjCA" target="_blank">
-                Cookies, Sessions, JSON Web Tokens (JWT) and More
-              </a></p>
-
-              <p><a href="https://www.youtube.com/watch?v=rNhqak2O-k0" target="_blank">
-                Local Storage, Session Storage or Cookies? XSS and CSRF included
-              </a></p>
-             
-              <p><a href="https://olhardigital.com.br/2022/01/24/tira-duvidas/o-que-sao-e-como-funcionam-os-cookies/" target="_blank">
-                O que são e como funcionam os cookies
-              </a> </p>
-
-            </ul>
-
-          </div>
-
-        </section>
-  
-    </div>
 
   </main>
 
@@ -255,9 +243,7 @@
     <div class="width"> &#127279; Simone</div>
   </footer>
 
-
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-  <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
   <script src="script/script.js"></script>
 </body>
 </html>
